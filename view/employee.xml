@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--tree view of the limited_partner model-->
+    <record id="limited_partner_tree" model="ir.ui.view">
+        <field name="name">company.limited_partner.tree</field>
+        <field name="model">company.limited_partner</field>
+        <field name="arch" type="xml">
+            <tree string="Company Contacts" create="false" edit="false" delete="false">
+                <field name="limited_partner_name"/>
+                <field name="parent_id"/>
+                <field name="job_position"/>
+                <field name="contact_manager"/>                
+                <field name="contact_country"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--form view of the limited_partner model-->
+    <record id="limited_partner_form" model="ir.ui.view">
+        <field name="name">company.limited_partner.form</field>
+        <field name="model">company.limited_partner</field>
+        <field name="arch" type="xml">
+            <form string="Company Contacts" create="false" edit="false" delete="false">
+            <sheet>
+                <group>
+                    <group>
+                        <field name="limited_partner_name"/>
+                    </group>
+                </group>
+                <group>
+                    <group>
+                <field name="parent_id"/>
+                <field name="job_position"/>
+                <field name="contact_manager"/>                
+                <field name="contact_country"/>
+                    </group>
+                </group>
+            </sheet>
+            </form>
+        </field>
+    </record>
+
+
+  <record id="limited_partner_search_form" model="ir.ui.view">
+            <field name="name">company.limited_partner.search.form</field>
+            <field name="model">company.limited_partner</field>
+            <field name="arch" type="xml">
+               <search string="Contacts">
+                    <field name="limited_partner_name"/>
+                    <field name="parent_id"/>
+                    <field name="job_position"/>
+                    <field name="contact_manager"/>
+                    <field name="contact_country"/>
+                </search>
+            </field>
+        </record>
+
+
+    <record id="action_limited_partner" model="ir.actions.act_window">
+        <field name="name">Company Contacts</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">company.limited_partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create an limited_partner
+          </p>
+        </field>
+    </record>
+
+    <menuitem id="company_limited_partner" name="Company Contacts" parent="project.menu_main_pm" action="action_limited_partner"/>
+
+</odoo>
